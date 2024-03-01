@@ -74,7 +74,7 @@ const signup_user = async (req, res) => {
         res.cookie('zgAuth', token, {
             httpOnly: true,
             secure: true,
-            sameSite: 'strict',
+            sameSite: 'none',
             maxAge: 24 * 60 * 60 * 1000
         });
 
@@ -133,7 +133,7 @@ const login_user = async (req, res) => {
         res.cookie('zgAuth', token, {
             httpOnly: true,
             secure: true,
-            sameSite: 'strict',
+            sameSite: 'none',
             maxAge: 24 * 60 * 60 * 1000
         });
 
