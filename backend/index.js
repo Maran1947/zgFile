@@ -23,7 +23,7 @@ const app = express()
 app.use(cors(corsOptions))
 app.use(session({
     secret: process.env.TOKEN_KEY,
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
