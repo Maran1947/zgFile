@@ -236,7 +236,7 @@ export default function Home() {
                                             variant="outlined"
                                             hiddenLabel
                                             inputProps={{
-                                                readonly: true,
+                                                readOnly: true,
                                             }}
                                             InputProps={{
                                                 style: {

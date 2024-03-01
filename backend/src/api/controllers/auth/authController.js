@@ -71,12 +71,7 @@ const signup_user = async (req, res) => {
 
         await user.save()
 
-        res.cookie('zgAuth', token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'none',
-            maxAge: 24 * 60 * 60 * 1000
-        });
+        res.cookie('zgAuth', token); 
 
         return res.status(200).json({
             success: true,
@@ -130,12 +125,7 @@ const login_user = async (req, res) => {
 
         const token = generateToken({ userId: user._id, email, role })
 
-        res.cookie('zgAuth', token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'none',
-            maxAge: 24 * 60 * 60 * 1000
-        });
+        res.cookie('zgAuth', token);
 
         return res.status(200).json({
             success: true,

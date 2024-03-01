@@ -6,6 +6,7 @@ import cors from 'cors'
 import path from 'path'
 import cookieParser from 'cookie-parser'
 import { fileURLToPath } from 'url'
+import session from 'express-session'
 
 config()
 connectDB();
@@ -20,6 +21,18 @@ const corsOptions = {
 const app = express()
 
 app.use(cors(corsOptions))
+app.use(session({
+    secret: process.env.TOKEN_KEY,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 24 * 60 * 60 * 1000,
+        partitioned: true,
+    }
+}))
 app.use(cookieParser());
 app.use(express.json())
 
